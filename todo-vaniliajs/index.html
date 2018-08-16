@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Helvetica+Neue' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <h1>todos</h1>
+    <div class="content">
+        <div class="input-container">
+            <input class="to-do-input" id="to-do-input" type="text" placeholder="What needs to be done?" onkeydown="addToDo(event)" autocomplete="off">
+        </div>
+        <div id="to-do-list"></div>
+        <div class="to-do-footer">
+            <div id="to-do-item-left-text">0 items left</div>
+            <div>
+                <button class="filter-all-button" onclick="filterAll()">All</button>
+                <button class="filter-active-button" onclick="filterActive()">Active</button>
+                <button class="filter-completed-button" onclick="filterComplete()">Completed</button>
+            </div>
+            <div>
+                <button class="clear-completed-button" onclick="clearComplete()">Clear completed</button>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

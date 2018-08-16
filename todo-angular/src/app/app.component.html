@@ -1,0 +1,30 @@
+<div style="text-align:center">
+  <h1>
+    todos
+  </h1>
+</div>
+<div class="content">
+  <div class="input-container">
+    <input class="to-do-input" id="to-do-input" type="text" placeholder="What needs to be done?" (keydown)="addToDo($event)"
+      autocomplete="off" [(value)]="inputValue">
+  </div>
+  <div *ngIf="todoModel" class="to-do-list">
+    <div class="item-row" *ngFor="let item of todoModel.lists">
+      <input class="to-do-checkbox" type="checkbox" [id]="item.id" [checked]="!item.active" (change)="markCompleted(item, $event)">
+      <input class="to-do-title" [readonly]="item.editing ? false : true" [value]="item.title" [id]="item.id" [ngStyle]="updateTitleStyle(item)"
+        (dblclick)="editTitle(item)" (keyup.enter)="updateTitle(item, $event)" (keyup.escape)="cancelEditing(item)">
+      <button (click)=" deleteItem(item) " class="delete-button " [id]="item.id ">X</button>
+    </div>
+  </div>
+  <div class="to-do-footer ">
+    <div class="to-do-item-left-text ">{{todoModel.lists.length}} items left</div>
+    <div>
+      <button class="filter-all-button " (click)="filterAll() ">All</button>
+      <button class="filter-active-button " (click)="filterActive() ">Active</button>
+      <button class="filter-completed-button " (click)="filterComplete() ">Completed</button>
+    </div>
+    <div>
+      <button class="clear-completed-button " (click)="clearComplete() ">Clear completed</button>
+    </div>
+  </div>
+</div>
