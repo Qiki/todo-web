@@ -9,11 +9,8 @@ import { ToDoModel } from './services/model';
 export class AppComponent {
   public inputValue = '';
   public activeItems;
-  public todoModel: ToDoModel;
 
-  constructor(todoModel: ToDoModel) {
-    this.todoModel = todoModel;
-  }
+  constructor(public todoModel: ToDoModel) {}
 
   // Actions
 
